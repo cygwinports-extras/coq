@@ -1,0 +1,30 @@
+NAME="coq"
+VERSION=8.4
+RELEASE=1
+CATEGORY="Math"
+SUMMARY="Formal Proof Management System"
+DESCRIPTION="Coq is a formal proof management system. It provides a formal
+language to write mathematical definitions, executable algorithms and theorems
+together with an environment for semi-interactive development of machine-
+checked proofs. Typical applications include the formalization of programming
+languages semantics, the formalization of mathematics, and teaching."
+REQUIRES="ocaml-base ocaml-lablgtk2"
+HOMEPAGE="http://coq.inria.fr/"
+SRC_URI="http://coq.inria.fr/distrib/V${PV}/files/${P}.tar.gz"
+PATCH_URI="8.3-cygwin.patch  8.4-lablgtk216.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	OS=Cygwin \
+	./configure \
+		-prefix /usr -configdir /etc/xdg/coq -mandir /usr/share/man \
+		-arch $(/bin/arch) \
+		-browser "xdg-open %s"
+	cygmake EXE=.exe
+}
+
+src_install() {
+	cd ${B}
+	cygmake install COQINSTALLPREFIX=${D} EXE=.exe
+}
