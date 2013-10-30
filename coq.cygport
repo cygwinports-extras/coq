@@ -1,5 +1,5 @@
 NAME="coq"
-VERSION=8.4
+VERSION=8.4pl2
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="Formal Proof Management System"
@@ -10,8 +10,11 @@ checked proofs. Typical applications include the formalization of programming
 languages semantics, the formalization of mathematics, and teaching."
 REQUIRES="ocaml-base ocaml-lablgtk2"
 HOMEPAGE="http://coq.inria.fr/"
-SRC_URI="http://coq.inria.fr/distrib/V${PV}/files/${P}.tar.gz"
-PATCH_URI="8.3-cygwin.patch  8.4-lablgtk216.patch"
+SRC_URI="http://coq.inria.fr/distrib/V${VERSION}/files/coq-${VERSION}.tar.gz"
+PATCH_URI="
+	8.3-cygwin.patch
+	8.4-static.patch
+"
 
 src_compile() {
 	lndirs

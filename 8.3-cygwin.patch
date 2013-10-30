@@ -9,20 +9,3 @@
  
  let search_exe_in_path exe =
    try
---- origsrc/coq-8.3pl2/tools/coq_tex.ml4	2010-07-24 10:57:30.000000000 -0500
-+++ src/coq-8.3pl2/tools/coq_tex.ml4	2011-12-17 23:16:42.952043100 -0600
-@@ -17,12 +17,12 @@
- 
- let _ =
-   match Sys.os_type with
--    | "Unix" -> ()
--    | _ -> begin
-+    | "Win32" -> begin
-       	print_string "This program only runs under Unix !\n";
-       	flush stdout;
-       	exit 1
-       end
-+    | _ -> ()
- 
- let linelen = ref 72
- let output = ref ""

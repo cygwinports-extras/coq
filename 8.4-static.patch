@@ -1,0 +1,11 @@
+--- origsrc/coq-8.4pl2/Makefile.build	2012-10-29 09:46:37.000000000 -0500
++++ src/coq-8.4pl2/Makefile.build	2013-10-30 01:37:34.534508700 -0500
+@@ -643,7 +643,7 @@ install-library:
+ 	$(INSTALLLIB) states/*.coq $(FULLCOQLIB)/states
+ 	$(MKDIR) $(FULLCOQLIB)/user-contrib
+ ifneq ($(COQRUNBYTEFLAGS),"-custom")
+-	$(INSTALLLIB) $(DLLCOQRUN) $(FULLCOQLIB)
++	-$(INSTALLLIB) $(DLLCOQRUN) $(FULLCOQLIB)
+ endif
+ 	$(INSTALLSH)  $(FULLCOQLIB) $(CONFIG) $(LINKCMO) $(GRAMMARCMA)
+ 	$(INSTALLSH)  $(FULLCOQLIB) $(INSTALLCMI)
